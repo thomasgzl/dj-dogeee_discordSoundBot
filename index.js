@@ -11,9 +11,9 @@ client.login(TOKEN);
 client.on('message', onMessage);
 
 async function onMessage (message) {
+  console.log(message.content);
+  
   if (message.member.voice.channel && message.content) {
-    console.log(message.content);
-
     const usrMsg = message.content.replace(';', '')
     const connection = await message.member.voice.channel.join();
 
