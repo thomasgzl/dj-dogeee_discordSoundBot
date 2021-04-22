@@ -12,7 +12,8 @@ client.on('message', onMessage);
 
 async function onMessage (message) {
   console.log(message.content);
-  if (message.member.voice.channel && message.content) {
+  const verifyChar = ';'
+  if (message.member.voice.channel && message.content.includes(verifyChar)) {
     const usrMsg = message.content.replace(';', '')
     const connection = await message.member.voice.channel.join();
 
