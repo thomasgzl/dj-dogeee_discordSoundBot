@@ -20,7 +20,6 @@ async function onMessage (message) {
 
     dispatcher.on('start', () => {
       console.log(`${usrMsg} is now playing!`);
-      message.content.delete()
     });
 
     dispatcher.on('finish', () => {
