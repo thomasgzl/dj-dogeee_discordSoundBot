@@ -1,6 +1,7 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
 const TOKEN = `${process.env.DJS_TOKEN}`;
+const verifyChar = ';'
 
 client.once('ready', () => {
   console.log('Ready!');
@@ -11,9 +12,9 @@ client.login(TOKEN);
 client.on('message', onMessage);
 
 async function onMessage (message) {
-  console.log(message.content);
-  const verifyChar = ';'
   if (message.member.voice.channel && message.content.includes(verifyChar)) {
+    console.log(message.content);
+    
     const usrMsg = message.content.replace(';', '')
     const connection = await message.member.voice.channel.join();
 
