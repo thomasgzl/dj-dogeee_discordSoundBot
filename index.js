@@ -35,3 +35,7 @@ async function onMessage (message) {
     });
   }
 }
+
+/* TODO
+help : list des sons 
+random : random un son */
