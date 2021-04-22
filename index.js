@@ -26,7 +26,6 @@ async function onMessage (message) {
 
     dispatcher.on('finish', () => {
       console.log(`${usrMsg} has finished playing!`);
-      connection.disconnect();
     });
 
     dispatcher.on('error', (err) => {
