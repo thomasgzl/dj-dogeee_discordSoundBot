@@ -47,7 +47,7 @@ async function onMessage (message) {
       list.push(sound.replace('.mp3', ''));
     });
 
-      user.send(list.join(' ;'));
+      user.send(list.join('\n;'));
   }
 
   // randomly play a sound
