@@ -4,7 +4,7 @@ const client = new Discord.Client();
 const TOKEN = `${process.env.DJS_TOKEN}`; // private token on Heroku
 
 client.once('ready', () => {
-  console.log('Ready to dance mofo!');
+  console.log('Ready to dance mofo! 😎😎');
 });
 
 client.login(TOKEN);
@@ -14,7 +14,7 @@ client.on('message', onMessage);
 const soundsList = fs.readdirSync('./audio');
 
 async function onMessage (message) {
-  console.log(message.content);
+  console.log(`👉🏼 ${message.content}`);
 
   // play a user's requested sound 
   if (message.member.voice.channel && message.content) {
@@ -24,16 +24,16 @@ async function onMessage (message) {
     const dispatcher = connection.play(`audio/${usrMsg}.mp3`);
 
     dispatcher.on('start', () => {
-      console.log(`${usrMsg} is now playing!`);
+      console.log(`${usrMsg} is now playing! 🎷`);
       message.delete();
     });
 
     dispatcher.on('finish', () => {
-      console.log(`${usrMsg} has finished playing!`);
+      console.log(`${usrMsg} has finished playing! 🎬`);
     });
 
     dispatcher.on('error', (err) => {
-      console.log(`${usrMsg} error`, err);
+      console.log(`${usrMsg} error 💣`, err);
       connection.disconnect();
     });
   }
@@ -60,16 +60,16 @@ async function onMessage (message) {
     const dispatcher = connection.play(`audio/${randomSound}`);
 
     dispatcher.on('start', () => {
-      console.log(`${randomSound} is randomly playing!`);
+      console.log(`${randomSound} is randomly playing! 🐙`);
       message.delete();
     });
 
     dispatcher.on('finish', () => {
-      console.log(`${randomSound} has finished playing randomly!`);
+      console.log(`${randomSound} has finished playing randomly! 🦑`);
     });
 
     dispatcher.on('error', (err) => {
-      console.log(`${randomSound} error`, err);
+      console.log(`${randomSound} error 💣`, err);
       connection.disconnect();
     });
   }
