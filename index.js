@@ -54,7 +54,7 @@ async function onMessage (message) {
   if (message.member.voice.channel && message.content === ';rdm') {
     const connection = await message.member.voice.channel.join();
 
-    const randomSoundIndex = Math.floor(Math.random()*soundsList.length);
+    const randomSoundIndex = Math.floor(Math.random() * soundsList.length);
     const randomSound = soundsList[randomSoundIndex];
 
     const dispatcher = connection.play(`audio/${randomSound}`);
