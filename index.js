@@ -25,7 +25,7 @@ async function onMessage (message) {
 
       dispatcher.on('start', () => {
         console.log(`${usrMsg} is now playing! 🎷`);
-        message.delete({ timeout: 5000 });
+        message.delete({ timeout: 1000 });
       });
 
       dispatcher.on('finish', () => {
@@ -61,7 +61,7 @@ async function onMessage (message) {
 
       dispatcher.on('start', () => {
         console.log(`${randFile} is randomly playing! 🐙`);
-        message.delete({ timeout: 5000 });
+        message.delete({ timeout: 1000 });
       });
 
       dispatcher.on('finish', () => {
