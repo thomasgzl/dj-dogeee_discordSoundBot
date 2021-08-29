@@ -21,11 +21,11 @@ async function onMessage (message) {
     const usrMsg = message.content.replace(';', '');
     const connection = await message.member.voice.channel.join();
 
-    const dispatcher = connection.play(`audio/${usrMsg}.mp3`);
+    const dispatcher = connection.play(`./audio/${usrMsg}.mp3`);
 
     dispatcher.on('start', () => {
       console.log(`${usrMsg} is now playing! 🎷`);
-      message.delete();
+      message.delete({ timeout: 5000 });
     });
 
     dispatcher.on('finish', () => {
@@ -53,15 +53,16 @@ async function onMessage (message) {
   // randomly play a sound
   if (message.member.voice.channel && message.content === ';rdm') {
     // const connection = await message.member.voice.channel.join();
+    
+    // const randomSoundIndex = Math.floor(Math.random() * soundsList.length);
+    // const randomSound = soundsList[randomSoundIndex];
+    const randFile = soundsList[Math.floor(Math.random() * soundsList.length)]
 
-    const randomSoundIndex = Math.floor(Math.random() * soundsList.length);
-    const randomSound = soundsList[randomSoundIndex];
-
-    const dispatcher = connection.play(`audio/${randomSound}`);
+    const dispatcher = connection.play(`./audio/${randFile}`);
 
     dispatcher.on('start', () => {
       console.log(`${randomSound} is randomly playing! 🐙`);
-      message.delete();
+      message.delete({ timeout: 5000 });
     });
 
     dispatcher.on('finish', () => {
