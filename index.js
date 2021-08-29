@@ -17,7 +17,7 @@ async function onMessage (message) {
   console.log(`👉🏼 ${message.content}`);
 
   // play a user's requested sound 
-  if (message.member.voice.channel && message.content) {
+  if (message.member.voice.channel && message.content.startsWith(';')) {
     const usrMsg = message.content.replace(';', '');
     const connection = await message.member.voice.channel.join();
 
@@ -52,7 +52,7 @@ async function onMessage (message) {
 
   // randomly play a sound
   if (message.member.voice.channel && message.content === ';rdm') {
-    const connection = await message.member.voice.channel.join();
+    // const connection = await message.member.voice.channel.join();
 
     const randomSoundIndex = Math.floor(Math.random() * soundsList.length);
     const randomSound = soundsList[randomSoundIndex];
