@@ -60,16 +60,16 @@ async function onMessage (message) {
       const dispatcher = connection.play(`./audio/${randFile}`);
 
       dispatcher.on('start', () => {
-        console.log(`${randomSound} is randomly playing! 🐙`);
+        console.log(`${randFile} is randomly playing! 🐙`);
         message.delete({ timeout: 5000 });
       });
 
       dispatcher.on('finish', () => {
-        console.log(`${randomSound} has finished playing randomly! 🦑`);
+        console.log(`${randFile} has finished playing randomly! 🦑`);
       });
 
       dispatcher.on('error', (err) => {
-        console.log(`${randomSound} error 💣`, err);
+        console.log(`${randFile} error 💣`, err);
         connection.disconnect();
       });
     }
